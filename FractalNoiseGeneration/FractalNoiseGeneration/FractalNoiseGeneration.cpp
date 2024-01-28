@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "Math.h"
+//tutorial for perlin https://www.youtube.com/watch?v=kCIaHqb60Cw
 typedef struct { //creates vector struct to be used for dot product
     float x, y;
 } vector2;
@@ -67,7 +68,7 @@ int main()
         for (int j = 0; j < windowHeight; j++) { //loops through each grid cell
             int index = (j * windowWidth + i) * 4; //gets current pixel
             float val = 0;
-            float freq = 1;
+            float freq = 1; //bigger values means less detail and the noise looks like it zooms out
             float amp = 1; //amplitude is equal to the the verticality of the grid map (i.e higher values mean higher inclines and lower values mean flatter terain)
             int octaves = 12; //number of interations
             for (int o = 0; o < octaves; o++) {
@@ -103,6 +104,6 @@ int main()
         window.draw(sprite);
         window.display();
     }
-
+    delete[] pixels;
     return 0;
 }
