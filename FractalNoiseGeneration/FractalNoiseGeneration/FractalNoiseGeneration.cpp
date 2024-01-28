@@ -75,6 +75,7 @@ int main()
                 val += perlin(i * freq / GRID_SIZE, j * freq / GRID_SIZE) * amp; //gets value of perlin noise after multiple iterations
                 freq *= 2; //lacurity (amount frequency grows after each octave)
                 amp /= 2; //persistance (amount amplitude shrinks after each octave)
+                //fractal pattern emerges as frequency increases (thus the perlin noise pattern repeats on a larger scale) and amplitude decreases (thus the perlin noise patterns appears on a smaller scale)
             }
             val *= 1.2; //contrast
             if (val > 1.0f) val = 1.0f;
